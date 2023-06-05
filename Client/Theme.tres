@@ -1,0 +1,104 @@
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://bngxlwnxu1agx"]
+
+[ext_resource type="Texture2D" uid="uid://dp1v2eh4koeob" path="res://Новая папка/icons/check_checkBox.png" id="1_hgoup"]
+[ext_resource type="Texture2D" uid="uid://dgp6waw7ccl2k" path="res://Новая папка/icons/fon_checkBox.png" id="1_lisch"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnrjx"]
+bg_color = Color(0.517647, 0.239216, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jo8m"]
+bg_color = Color(0.517647, 0.239216, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h01th"]
+bg_color = Color(0.65098, 0.294118, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wsnrb"]
+bg_color = Color(0.6, 0.2, 0, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yd571"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(0.65098, 0.294118, 0, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ptcdc"]
+content_margin_left = 10.0
+content_margin_right = 10.0
+bg_color = Color(1, 0.4, 0, 1)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+shadow_color = Color(1, 1, 1, 0.6)
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_53ys7"]
+bg_color = Color(0.8, 0.4, 0.2, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gqvf3"]
+bg_color = Color(0.65098, 0.294118, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdttm"]
+bg_color = Color(1, 0.454902, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dehou"]
+bg_color = Color(0.65098, 0.294118, 0, 1)
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 24
+Button/styles/disabled = SubResource("StyleBoxFlat_xnrjx")
+Button/styles/focus = SubResource("StyleBoxFlat_1jo8m")
+Button/styles/hover = SubResource("StyleBoxFlat_h01th")
+Button/styles/normal = SubResource("StyleBoxFlat_wsnrb")
+Button/styles/pressed = SubResource("StyleBoxFlat_xnrjx")
+CheckBox/icons/checked = ExtResource("1_hgoup")
+CheckBox/icons/radio_checked = ExtResource("1_lisch")
+CheckBox/icons/unchecked = ExtResource("1_lisch")
+Label/font_sizes/font_size = 24
+LineEdit/font_sizes/font_size = 24
+LineEdit/styles/focus = SubResource("StyleBoxFlat_yd571")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_ptcdc")
+Panel/styles/panel = SubResource("StyleBoxFlat_53ys7")
+PopupMenu/font_sizes/font_size = 24
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_gqvf3")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_sdttm")
+TextEdit/font_sizes/font_size = 20
+TextEdit/styles/normal = SubResource("StyleBoxFlat_dehou")
