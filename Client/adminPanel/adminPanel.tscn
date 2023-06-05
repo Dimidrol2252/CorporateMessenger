@@ -1,0 +1,384 @@
+[gd_scene load_steps=19 format=3 uid="uid://bepog8e7tw1q2"]
+
+[ext_resource type="Theme" uid="uid://bngxlwnxu1agx" path="res://Theme.tres" id="1_yb3bj"]
+[ext_resource type="Script" path="res://adminPanel/adminPanel.gd" id="2_0joho"]
+[ext_resource type="Script" path="res://adminPanel/PanelAdminPanel.gd" id="2_ojybc"]
+[ext_resource type="Script" path="res://adminPanel/OptionView.gd" id="3_tcm2h"]
+[ext_resource type="Script" path="res://adminPanel/Search.gd" id="4_sq0au"]
+[ext_resource type="Script" path="res://adminPanel/List.gd" id="4_x1n8g"]
+[ext_resource type="Script" path="res://adminPanel/Add.gd" id="5_0x6oc"]
+[ext_resource type="Theme" uid="uid://bygasobw1pkou" path="res://themeForBtn.tres" id="5_7jrt1"]
+[ext_resource type="Script" path="res://adminPanel/exitBtn.gd" id="5_nk62f"]
+[ext_resource type="Script" path="res://adminPanel/CreatingNewChat.gd" id="5_x5rug"]
+[ext_resource type="Script" path="res://adminPanel/BtnCloseCreating.gd" id="7_6jf28"]
+[ext_resource type="Script" path="res://adminPanel/ListUsers.gd" id="7_dxdm1"]
+[ext_resource type="Script" path="res://adminPanel/BtnCreate.gd" id="8_twec7"]
+[ext_resource type="Script" path="res://adminPanel/ConfirmName.gd" id="9_ertyu"]
+[ext_resource type="Script" path="res://adminPanel/CloseEnterNameChat.gd" id="14_0f38b"]
+[ext_resource type="Texture2D" uid="uid://btrcn4ufxr1gf" path="res://Новая папка/icons/maximum_gray.png" id="15_40a6n"]
+[ext_resource type="Script" path="res://wait.gd" id="17_qbb7p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4xpo"]
+bg_color = Color(0, 0, 0, 0.466667)
+
+[node name="AdminPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_yb3bj")
+script = ExtResource("2_0joho")
+
+[node name="PanelAdminPanel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ojybc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelAdminPanel"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="PanelAdminPanel/VBoxContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="PanelAdminPanel/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/Header/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="exitBtn" type="Button" parent="PanelAdminPanel/VBoxContainer/Header/Panel3/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("5_7jrt1")
+text = "_EXIT_"
+script = ExtResource("5_nk62f")
+
+[node name="Panel" type="Panel" parent="PanelAdminPanel/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelAdminPanel/VBoxContainer/Header/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelAdminPanel/VBoxContainer/Header/Panel/VBoxContainer"]
+layout_mode = 2
+text = "_ADMIN_PANEL_"
+horizontal_alignment = 1
+
+[node name="MarginSearch" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/Header/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="Search" type="LineEdit" parent="PanelAdminPanel/VBoxContainer/Header/Panel/VBoxContainer/MarginSearch"]
+layout_mode = 2
+placeholder_text = "_SEARCH_"
+alignment = 1
+script = ExtResource("4_sq0au")
+
+[node name="Panel2" type="Panel" parent="PanelAdminPanel/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.8
+
+[node name="MarginOption" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/Header/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -20.0
+offset_right = 30.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionView" type="OptionButton" parent="PanelAdminPanel/VBoxContainer/Header/Panel2/MarginOption"]
+layout_mode = 2
+theme = ExtResource("5_7jrt1")
+item_count = 2
+selected = 0
+popup/item_0/text = " users "
+popup/item_0/id = 0
+popup/item_1/text = " chats "
+popup/item_1/id = 1
+script = ExtResource("3_tcm2h")
+
+[node name="Main" type="ScrollContainer" parent="PanelAdminPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="List" type="VBoxContainer" parent="PanelAdminPanel/VBoxContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_x1n8g")
+
+[node name="CreatingNewChat" type="VBoxContainer" parent="PanelAdminPanel/VBoxContainer"]
+visible = false
+layout_mode = 2
+script = ExtResource("5_x5rug")
+
+[node name="Head" type="Panel" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(5, 0)
+layout_mode = 2
+
+[node name="Labels" type="VBoxContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "Выберете участников чата "
+horizontal_alignment = 1
+
+[node name="NameNewChat" type="Label" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer/Labels"]
+layout_mode = 2
+text = "\"Обществознание 12345\""
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BtnCreate" type="Button" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("5_7jrt1")
+text = "Создать
+"
+script = ExtResource("8_twec7")
+
+[node name="MarginContainer4" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="BtnCloseCreating" type="Button" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("5_7jrt1")
+text = "Отмена"
+script = ExtResource("7_6jf28")
+
+[node name="MarginContainer2" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/Head/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+
+[node name="ListUsers" type="Panel" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+script = ExtResource("7_dxdm1")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/ListUsers"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/ListUsers/MarginContainer"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelAdminPanel/VBoxContainer/CreatingNewChat/ListUsers/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Footer" type="HBoxContainer" parent="PanelAdminPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Panel" type="Panel" parent="PanelAdminPanel/VBoxContainer/Footer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="TextureRect2" type="TextureRect" parent="PanelAdminPanel/VBoxContainer/Footer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0166667
+anchor_top = 0.1
+anchor_right = 0.388467
+anchor_bottom = 0.8656
+offset_right = 790.92
+offset_bottom = 271.44
+grow_vertical = 0
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("15_40a6n")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginBtnAdd" type="MarginContainer" parent="PanelAdminPanel/VBoxContainer/Footer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -30.0
+offset_right = 50.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Add" type="Button" parent="PanelAdminPanel/VBoxContainer/Footer/Panel/MarginBtnAdd"]
+layout_mode = 2
+theme = ExtResource("5_7jrt1")
+text = "_ADD_"
+script = ExtResource("5_0x6oc")
+
+[node name="WindowEditNameChat" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y4xpo")
+
+[node name="Panel" type="Panel" parent="WindowEditNameChat"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.12
+anchor_top = 0.3
+anchor_right = 0.88
+anchor_bottom = 0.65
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WindowEditNameChat/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="WindowEditNameChat/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Введите название чата"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowEditNameChat/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="NameNewChat" type="LineEdit" parent="WindowEditNameChat/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+placeholder_text = "_NAMECHAT_"
+alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="WindowEditNameChat/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="WindowEditNameChat/Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ConfirmName" type="Button" parent="WindowEditNameChat/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("5_7jrt1")
+text = "Подтвердить"
+script = ExtResource("9_ertyu")
+
+[node name="MarginContainer" type="MarginContainer" parent="WindowEditNameChat/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="CloseEnterNameChat" type="Button" parent="WindowEditNameChat/Panel/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(165, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("5_7jrt1")
+text = "Отмена"
+script = ExtResource("14_0f38b")
+
+[node name="wait" type="Panel" parent="."]
+visible = false
+self_modulate = Color(0.423529, 0.423529, 0.423529, 0.784314)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("17_qbb7p")
+
+[node name="Label" type="Label" parent="wait"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Соединение с сервером..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="text_changed" from="PanelAdminPanel/VBoxContainer/Header/Panel/VBoxContainer/MarginSearch/Search" to="PanelAdminPanel/VBoxContainer/Header/Panel/VBoxContainer/MarginSearch/Search" method="_on_text_changed"]
+[connection signal="item_selected" from="PanelAdminPanel/VBoxContainer/Header/Panel2/MarginOption/OptionView" to="PanelAdminPanel/VBoxContainer/Header/Panel2/MarginOption/OptionView" method="_on_item_selected"]

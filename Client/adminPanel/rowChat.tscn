@@ -1,0 +1,150 @@
+[gd_scene load_steps=10 format=3 uid="uid://d2mjrc8pb3kse"]
+
+[ext_resource type="Theme" uid="uid://bngxlwnxu1agx" path="res://Theme.tres" id="1_fwv3t"]
+[ext_resource type="Texture2D" uid="uid://rylocvheslrc" path="res://Новая папка/icons/free-icon-rubbish-bin-1483063.png" id="2_y505u"]
+[ext_resource type="Script" path="res://adminPanel/DelChat.gd" id="3_6gf0t"]
+[ext_resource type="Texture2D" uid="uid://cs066y8sgnnus" path="res://Новая папка/icons/free-icon-info-665049.png" id="3_m0jsa"]
+[ext_resource type="Theme" uid="uid://bygasobw1pkou" path="res://themeForBtn.tres" id="5_qq6ai"]
+[ext_resource type="Script" path="res://adminPanel/ConfirmDelete.gd" id="6_jfleb"]
+[ext_resource type="Script" path="res://adminPanel/CloseDelete.gd" id="7_gm0n7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wo8i7"]
+bg_color = Color(0.356863, 0.341176, 0.32549, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+shadow_color = Color(1, 1, 1, 0.6)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbqkn"]
+bg_color = Color(0.65098, 0.294118, 0, 1)
+
+[node name="rowChat" type="MarginContainer"]
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -799.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_fwv3t")
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 10
+metadata/flagChat = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Name" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 22.0
+offset_right = 296.0
+offset_bottom = 59.0
+text = "Код будущего 11 поток"
+
+[node name="DelChat" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.889
+anchor_top = 0.274
+anchor_right = 0.966
+anchor_bottom = 0.789
+icon = ExtResource("2_y505u")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_6gf0t")
+
+[node name="Info" type="Button" parent="Panel"]
+layout_mode = 0
+anchor_left = 0.773214
+anchor_top = 0.271605
+anchor_right = 0.844643
+anchor_bottom = 0.765432
+icon = ExtResource("3_m0jsa")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="CountUsers" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.666071
+anchor_top = 0.271605
+anchor_right = 1.0
+anchor_bottom = 0.728395
+grow_horizontal = 0
+grow_vertical = 2
+text = "(15)"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChekBox" type="CheckBox" parent="Panel"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.85
+anchor_top = 0.185
+anchor_right = 0.895
+anchor_bottom = 0.551
+theme_override_styles/normal = SubResource("StyleBoxFlat_wo8i7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wo8i7")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wo8i7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wo8i7")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_wo8i7")
+theme_override_styles/focus = SubResource("StyleBoxFlat_wo8i7")
+
+[node name="ConfirmWindow" type="MarginContainer" parent="."]
+visible = false
+custom_minimum_size = Vector2(200, 81)
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="ConfirmWindow"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fbqkn")
+
+[node name="ConfirmDelete" type="Button" parent="ConfirmWindow/Panel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0267857
+anchor_top = 0.185185
+anchor_right = 0.314286
+anchor_bottom = 0.802469
+grow_vertical = 2
+theme = ExtResource("5_qq6ai")
+text = "Подтвердить"
+script = ExtResource("6_jfleb")
+metadata/_edit_use_anchors_ = true
+
+[node name="CloseDelete" type="Button" parent="ConfirmWindow/Panel"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.680357
+anchor_top = 0.185185
+anchor_right = 0.967857
+anchor_bottom = 0.802469
+grow_vertical = 2
+theme = ExtResource("5_qq6ai")
+text = "Отменить"
+script = ExtResource("7_gm0n7")
+metadata/_edit_use_anchors_ = true
+
+[node name="label" type="Label" parent="ConfirmWindow/Panel"]
+layout_mode = 0
+anchor_left = 0.357143
+anchor_top = 0.271605
+anchor_right = 0.641071
+anchor_bottom = 0.728395
+text = "Удалить чат?"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

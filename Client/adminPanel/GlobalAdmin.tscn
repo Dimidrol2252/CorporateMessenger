@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b71utxniogctr"]
+
+[ext_resource type="Script" path="res://adminPanel/GlobalAdmin.gd" id="1_si7fv"]
+
+[node name="GlobalAdmin" type="Node"]
+script = ExtResource("1_si7fv")

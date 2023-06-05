@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://bpqubu1rmtnml"]
+
+[ext_resource type="Theme" uid="uid://bngxlwnxu1agx" path="res://Theme.tres" id="1_iowdb"]
+[ext_resource type="Theme" uid="uid://bygasobw1pkou" path="res://themeForBtn.tres" id="2_72kg2"]
+[ext_resource type="Script" path="res://adminPanel/Del.gd" id="3_u8db1"]
+
+[node name="rowSelectedUserr" type="HBoxContainer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme = ExtResource("1_iowdb")
+
+[node name="NameUser" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+size_flags_stretch_ratio = 1.94
+text = "Иван Иванов"
+
+[node name="Del" type="Button" parent="."]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme = ExtResource("2_72kg2")
+text = "удалить"
+script = ExtResource("3_u8db1")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
