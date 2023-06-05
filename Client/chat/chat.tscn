@@ -1,0 +1,234 @@
+[gd_scene load_steps=13 format=3 uid="uid://cq0rt2mdgdh0"]
+
+[ext_resource type="Theme" uid="uid://bngxlwnxu1agx" path="res://Theme.tres" id="1_f7lxt"]
+[ext_resource type="Theme" uid="uid://bygasobw1pkou" path="res://themeForBtn.tres" id="2_eftgt"]
+[ext_resource type="Script" path="res://chat/mainPanel.gd" id="2_kalxq"]
+[ext_resource type="Script" path="res://chat/BackToMain.gd" id="3_4yhjr"]
+[ext_resource type="Texture2D" uid="uid://cs066y8sgnnus" path="res://Новая папка/icons/free-icon-info-665049.png" id="3_n0pne"]
+[ext_resource type="Script" path="res://chat/inputTextMessage.gd" id="4_2grno"]
+[ext_resource type="Script" path="res://chat/List.gd" id="4_dff1k"]
+[ext_resource type="Script" path="res://chat/Main.gd" id="6_yu5sl"]
+[ext_resource type="Script" path="res://chat/sendMessage.gd" id="7_rcg5o"]
+[ext_resource type="Script" path="res://chat/PreviewImageContainer.gd" id="8_scvja"]
+[ext_resource type="Script" path="res://wait.gd" id="10_eccap"]
+[ext_resource type="Texture2D" uid="uid://cagl1gr5men0r" path="res://icons/screpka.png" id="11_mqfkh"]
+
+[node name="chat" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_f7lxt")
+
+[node name="mainPanel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_kalxq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="mainPanel"]
+layout_mode = 2
+
+[node name="Header" type="HBoxContainer" parent="mainPanel/VBoxContainer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+
+[node name="Panel3" type="Panel" parent="mainPanel/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MarginSearch" type="MarginContainer" parent="mainPanel/VBoxContainer/Header/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 0
+
+[node name="BackToMain" type="Button" parent="mainPanel/VBoxContainer/Header/Panel3/MarginSearch"]
+layout_mode = 2
+theme = ExtResource("2_eftgt")
+text = "<<"
+script = ExtResource("3_4yhjr")
+
+[node name="Panel" type="Panel" parent="mainPanel/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="mainPanel/VBoxContainer/Header/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="nameChat" type="Label" parent="mainPanel/VBoxContainer/Header/Panel/VBoxContainer"]
+layout_mode = 2
+text = "NameChat"
+horizontal_alignment = 1
+
+[node name="MarginSearch" type="MarginContainer" parent="mainPanel/VBoxContainer/Header/Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="Search" type="LineEdit" parent="mainPanel/VBoxContainer/Header/Panel/VBoxContainer/MarginSearch"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+placeholder_text = "_SEARCH_"
+alignment = 1
+
+[node name="Panel2" type="Panel" parent="mainPanel/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="MarginOption" type="MarginContainer" parent="mainPanel/VBoxContainer/Header/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -25.0
+offset_right = 25.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="infoChat" type="Button" parent="mainPanel/VBoxContainer/Header/Panel2/MarginOption"]
+layout_mode = 2
+icon = ExtResource("3_n0pne")
+expand_icon = true
+
+[node name="Main" type="ScrollContainer" parent="mainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("6_yu5sl")
+
+[node name="List" type="VBoxContainer" parent="mainPanel/VBoxContainer/Main"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("4_dff1k")
+
+[node name="PreviewImageScroll" type="Panel" parent="mainPanel/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 130)
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="mainPanel/VBoxContainer/PreviewImageScroll"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PreviewImageContainer" type="HBoxContainer" parent="mainPanel/VBoxContainer/PreviewImageScroll/ScrollContainer"]
+layout_mode = 2
+alignment = 1
+script = ExtResource("8_scvja")
+
+[node name="Footer" type="HBoxContainer" parent="mainPanel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Panel" type="Panel" parent="mainPanel/VBoxContainer/Footer"]
+custom_minimum_size = Vector2(600, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="mainPanel/VBoxContainer/Footer/Panel"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -19.0
+offset_bottom = 19.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="mainPanel/VBoxContainer/Footer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="imgDialog" type="Button" parent="mainPanel/VBoxContainer/Footer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_eftgt")
+icon = ExtResource("11_mqfkh")
+icon_alignment = 1
+expand_icon = true
+
+[node name="MarginContainer3" type="MarginContainer" parent="mainPanel/VBoxContainer/Footer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="inputTextMessage" type="TextEdit" parent="mainPanel/VBoxContainer/Footer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(400, 100)
+layout_mode = 2
+placeholder_text = "Сообщение"
+script = ExtResource("4_2grno")
+
+[node name="MarginContainer" type="MarginContainer" parent="mainPanel/VBoxContainer/Footer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="sendMessage" type="Button" parent="mainPanel/VBoxContainer/Footer/Panel/HBoxContainer"]
+custom_minimum_size = Vector2(55, 55)
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("2_eftgt")
+text = ">"
+script = ExtResource("7_rcg5o")
+
+[node name="wait" type="Panel" parent="."]
+visible = false
+self_modulate = Color(0.423529, 0.423529, 0.423529, 0.784314)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("10_eccap")
+
+[node name="Label" type="Label" parent="wait"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -17.0
+offset_right = 20.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Соединение с сервером..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="mainPanel/VBoxContainer/Footer/Panel/HBoxContainer/imgDialog" to="mainPanel/VBoxContainer/PreviewImageScroll/ScrollContainer/PreviewImageContainer" method="_on_ButtonGalleryMulti_pressed"]

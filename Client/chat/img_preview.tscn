@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://q2b4nn45rwj3"]
+
+[ext_resource type="Theme" uid="uid://bngxlwnxu1agx" path="res://Theme.tres" id="1_22gbm"]
+[ext_resource type="Texture2D" uid="uid://c4j1knabjifkd" path="res://Новая папка/db.png" id="2_3i1b8"]
+[ext_resource type="Script" path="res://chat/delImgPreview.gd" id="3_kr18m"]
+
+[node name="imgPreview" type="TextureRect"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+theme = ExtResource("1_22gbm")
+texture = ExtResource("2_3i1b8")
+expand_mode = 1
+stretch_mode = 6
+metadata/imageBuffer = PackedByteArray()
+
+[node name="delImgPreview" type="Button" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -13.0
+offset_bottom = 34.0
+grow_horizontal = 0
+text = "x"
+script = ExtResource("3_kr18m")
