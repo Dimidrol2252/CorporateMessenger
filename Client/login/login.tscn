@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://dq4tt3vh2rfk6"]
+
+[ext_resource type="Theme" uid="uid://bngxlwnxu1agx" path="res://Theme.tres" id="1_xsv7h"]
+[ext_resource type="Script" path="res://login/BtnToReg.gd" id="2_32qpb"]
+[ext_resource type="Script" path="res://login/login.gd" id="2_wf0c8"]
+[ext_resource type="Script" path="res://login/BtnLogin.gd" id="3_jgvk0"]
+[ext_resource type="Theme" uid="uid://bygasobw1pkou" path="res://themeForBtn.tres" id="4_4o2h1"]
+[ext_resource type="Texture2D" uid="uid://bpr5nifiex62l" path="res://Новая папка/icons/fox.png" id="6_6jbjj"]
+[ext_resource type="Texture2D" uid="uid://dimk6juo8q8yt" path="res://Новая папка/icons/maximum.svg" id="7_3n0sv"]
+
+[node name="login" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_xsv7h")
+script = ExtResource("2_wf0c8")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginForBtnReg" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.00166667
+anchor_right = 1.00167
+anchor_bottom = 0.0976563
+grow_horizontal = 2
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="BtnToReg" type="Button" parent="MarginForBtnReg"]
+visible = false
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "_REGISTRATION_"
+script = ExtResource("2_32qpb")
+
+[node name="MarginForInputLogin" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.2
+anchor_right = 0.75
+anchor_bottom = 0.2
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginForInputLogin"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+placeholder_text = "_LOGIN_"
+
+[node name="MarginForInputPassword" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.3
+anchor_right = 0.75
+anchor_bottom = 0.3
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="LineEdit" type="LineEdit" parent="MarginForInputPassword"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+placeholder_text = "_PASSWORD_"
+
+[node name="MarginBtnLogin" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.4
+anchor_right = 0.75
+anchor_bottom = 0.4
+offset_top = 19.4
+offset_bottom = 89.4
+grow_horizontal = 2
+
+[node name="BtnLogin" type="Button" parent="MarginBtnLogin"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("4_4o2h1")
+text = "_ENTER_"
+script = ExtResource("3_jgvk0")
+
+[node name="MarginError" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(300, 35)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.4
+anchor_right = 0.75
+anchor_bottom = 0.4
+offset_top = -42.6
+offset_bottom = 19.4
+grow_horizontal = 2
+
+[node name="Error" type="Label" parent="MarginError"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+text = "_LOGINORPASSWORDERROR_"
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -288.0
+offset_right = 288.0
+grow_vertical = 0
+texture = ExtResource("6_6jbjj")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_left = 0.246667
+anchor_right = 0.753667
+anchor_bottom = 0.116
+offset_right = 709.8
+offset_bottom = 243.6
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_3n0sv")
+metadata/_edit_use_anchors_ = true

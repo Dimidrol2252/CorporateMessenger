@@ -1,0 +1,187 @@
+[gd_scene load_steps=9 format=3 uid="uid://b1axjbtp6xt6r"]
+
+[ext_resource type="Theme" uid="uid://bngxlwnxu1agx" path="res://Theme.tres" id="1_hwbuk"]
+[ext_resource type="Script" path="res://registration/registration.gd" id="2_bbyap"]
+[ext_resource type="Theme" uid="uid://bygasobw1pkou" path="res://themeForBtn.tres" id="2_m60nl"]
+[ext_resource type="Script" path="res://registration/BtnBackToLogin.gd" id="2_wbmja"]
+[ext_resource type="Script" path="res://registration/OptionListChats.gd" id="3_4vnhf"]
+[ext_resource type="Script" path="res://registration/Phone.gd" id="4_cp0fo"]
+[ext_resource type="Script" path="res://registration/Continue.gd" id="4_raf7v"]
+[ext_resource type="Texture2D" uid="uid://dimk6juo8q8yt" path="res://Новая папка/icons/maximum.svg" id="8_n3fbk"]
+
+[node name="registration" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hwbuk")
+script = ExtResource("2_bbyap")
+
+[node name="Panel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginBtnBack" type="MarginContainer" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+
+[node name="BtnBackToLogin" type="Button" parent="Panel/ScrollContainer/VBoxContainer/MarginBtnBack"]
+custom_minimum_size = Vector2(150, 70)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("2_m60nl")
+text = "_BACK_"
+script = ExtResource("2_wbmja")
+
+[node name="MarginLogin" type="MarginContainer" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 120
+
+[node name="Login" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/MarginLogin"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+placeholder_text = "_LOGIN_"
+
+[node name="Error" type="Label" parent="Panel/ScrollContainer/VBoxContainer/MarginLogin/Login"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.77143
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "Логин занят"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginPhone" type="MarginContainer" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 120
+
+[node name="Phone" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/MarginPhone"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+placeholder_text = "_PHONE_"
+max_length = 11
+script = ExtResource("4_cp0fo")
+
+[node name="Error" type="Label" parent="Panel/ScrollContainer/VBoxContainer/MarginPhone/Phone"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.77143
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+text = "Телефон занят"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginPassword" type="MarginContainer" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 120
+
+[node name="Password" type="LineEdit" parent="Panel/ScrollContainer/VBoxContainer/MarginPassword"]
+custom_minimum_size = Vector2(300, 70)
+layout_mode = 2
+placeholder_text = "_PASSWORD_"
+secret = true
+
+[node name="Error" type="Label" parent="Panel/ScrollContainer/VBoxContainer/MarginPassword/Password"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.77143
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginChat" type="MarginContainer" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 120
+
+[node name="OptionListChats" type="OptionButton" parent="Panel/ScrollContainer/VBoxContainer/MarginChat"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+alignment = 1
+text_overrun_behavior = 1
+item_count = 1
+selected = 0
+fit_to_longest_item = false
+popup/item_0/text = "_CHECKCHAT_"
+popup/item_0/id = 0
+popup/item_0/separator = true
+script = ExtResource("3_4vnhf")
+
+[node name="Error" type="Label" parent="Panel/ScrollContainer/VBoxContainer/MarginChat/OptionListChats"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.77143
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginBtnContinue" type="MarginContainer" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 120
+
+[node name="Continue" type="Button" parent="Panel/ScrollContainer/VBoxContainer/MarginBtnContinue"]
+custom_minimum_size = Vector2(175, 70)
+layout_mode = 2
+size_flags_horizontal = 8
+theme = ExtResource("2_m60nl")
+text = "_CONTINUE_"
+script = ExtResource("4_raf7v")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.416667
+anchor_top = 0.0111111
+anchor_right = 0.923667
+anchor_bottom = 0.127111
+offset_right = 709.8
+offset_bottom = 243.6
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("8_n3fbk")
+metadata/_edit_use_anchors_ = true
+
+[connection signal="text_changed" from="Panel/ScrollContainer/VBoxContainer/MarginPhone/Phone" to="Panel/ScrollContainer/VBoxContainer/MarginPhone/Phone" method="_on_text_changed"]
